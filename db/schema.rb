@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140306175248) do
+ActiveRecord::Schema.define(:version => 20140306210838) do
 
   create_table "access", :force => true do |t|
     t.integer "fk_user",    :default => 0, :null => false
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20140306175248) do
     t.integer  "count"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "onto"
   end
 
   create_table "types", :primary_key => "pk_bibname", :force => true do |t|

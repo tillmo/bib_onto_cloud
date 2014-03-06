@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :count, :text
-  has_many :tag_entries
+  attr_accessible :count, :text, :onto
+  has_many :tag_entries, dependent: :destroy
   has_many :entries, :through => :tag_entries
 
 TRIVIAL_WORDS = ["the","a","with","from","for","in","and","of","on",
@@ -40,14 +40,45 @@ TRIVIAL_WORDS = ["the","a","with","from","for","in","and","of","on",
     end   
   end
 
-  def self.tag_cloud
+  def self.tag_cloud(onto)
     tag_cloud = []
-    Tag.where("count > 5").each do |t|
+    Tag.where("count > 5").where("onto = ?",onto).each do |t|
       tag_cloud << {"text" => t.text, "weight" => t.count, 
                     "link" => "/entries/?tag=#{t.text}"}
     end   
     tag_cloud
   end
 
+  def add(e)
+    self.count +=1
+    self.save
+    TagEntry.create(:tag => self, :entry => e)
+  end
+
+  def self.read_onto
+    File.open("#{Rails.root.to_s}/all.classes.sort") do |f|
+      while !f.eof?
+        s = f.gets.chomp
+        puts s
+        h = {:text => s, :count => 0, :onto=> true}
+        t = Tag.where(h).first
+        if t.nil?
+          t = Tag.create(h)
+        end
+#        c = "grep -il \"#{s}\" #{Rails.root.to_s}/public/pdf/*txt" 
+#        res = `#{c}`
+#        res.split("\n").each do |file|
+#          file = file[0,file.size-4]
+          Entry.all.each do |e|
+#            if e.pdf_filename==file
+            if e.title.downcase.include?(s)
+              puts s, e.id
+              t.add(e)
+            end
+          end
+        #end
+      end
+    end
+  end
 
 end

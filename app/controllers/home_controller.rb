@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
 
   def index
-    @tag_cloud = Tag.tag_cloud
+    onto = !params[:onto].nil?
+    @tag_cloud = Tag.tag_cloud(onto)
   end
 
   def index2
@@ -17,3 +18,7 @@ class HomeController < ApplicationController
   end
 
 end
+
+#4644
+#270
+#337
