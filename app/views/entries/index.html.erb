@@ -1,0 +1,33 @@
+<h1>
+Papers
+<% if params[:tag] %>
+  for "<%= params[:tag] %>"
+<% end %>
+</h1>
+
+<% @entries.each do |entry| %>
+<p>
+    <%= entry.author %>:
+    <i><%= entry.title %></i>.
+    <%= entry.editor %>
+    <%= entry.booktitle %>
+    <%= entry.publisher_name %>
+    <%= entry.series %>
+    <%= entry.volume %>
+    <%= entry.chapter %>
+    <%= entry.pages %>
+    <%= entry.number %>
+    <%= entry.journal %>
+    <%= entry.year %>
+<% if !entry.url.blank? %>
+  <%= link_to "www", entry.url %>
+<% end %>
+<% if !entry.pdfurl.blank? %>
+  <%= link_to "pdf", entry.pdfurl %>
+<% end %>
+</p>
+<% end %>
+</table>
+
+<br />
+

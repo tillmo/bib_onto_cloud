@@ -1,0 +1,31 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Fk groups</th>
+    <th>Username</th>
+    <th>Realname</th>
+    <th>Passwort</th>
+    <th>Login</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.fk_groups %></td>
+    <td><%= user.username %></td>
+    <td><%= user.realname %></td>
+    <td><%= user.passwort %></td>
+    <td><%= user.login %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

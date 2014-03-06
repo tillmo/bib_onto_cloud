@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fk_groups: 1
+  username: MyString
+  realname: MyString
+  passwort: MyString
+  login: false
+
+two:
+  fk_groups: 1
+  username: MyString
+  realname: MyString
+  passwort: MyString
+  login: false

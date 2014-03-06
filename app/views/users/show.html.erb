@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fk groups:</b>
+  <%= @user.fk_groups %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Realname:</b>
+  <%= @user.realname %>
+</p>
+
+<p>
+  <b>Passwort:</b>
+  <%= @user.passwort %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%= @user.login %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

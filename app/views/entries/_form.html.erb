@@ -1,0 +1,169 @@
+<%= form_for(@entry) do |f| %>
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+      <% @entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bibkey %><br />
+    <%= f.text_field :bibkey %>
+  </div>
+  <div class="field">
+    <%= f.label :fk_user %><br />
+    <%= f.number_field :fk_user %>
+  </div>
+  <div class="field">
+    <%= f.label :fk_type %><br />
+    <%= f.text_field :fk_type %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :author_sortkey %><br />
+    <%= f.text_field :author_sortkey %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :editor %><br />
+    <%= f.text_field :editor %>
+  </div>
+  <div class="field">
+    <%= f.label :booktitle %><br />
+    <%= f.text_field :booktitle %>
+  </div>
+  <div class="field">
+    <%= f.label :publisher_name %><br />
+    <%= f.text_field :publisher_name %>
+  </div>
+  <div class="field">
+    <%= f.label :publisher_address %><br />
+    <%= f.text_field :publisher_address %>
+  </div>
+  <div class="field">
+    <%= f.label :publisher_url %><br />
+    <%= f.text_field :publisher_url %>
+  </div>
+  <div class="field">
+    <%= f.label :institution_name %><br />
+    <%= f.text_field :institution_name %>
+  </div>
+  <div class="field">
+    <%= f.label :institution_address %><br />
+    <%= f.text_field :institution_address %>
+  </div>
+  <div class="field">
+    <%= f.label :institution_url %><br />
+    <%= f.text_field :institution_url %>
+  </div>
+  <div class="field">
+    <%= f.label :school_name %><br />
+    <%= f.text_field :school_name %>
+  </div>
+  <div class="field">
+    <%= f.label :school_address %><br />
+    <%= f.text_field :school_address %>
+  </div>
+  <div class="field">
+    <%= f.label :school_url %><br />
+    <%= f.text_field :school_url %>
+  </div>
+  <div class="field">
+    <%= f.label :keywords %><br />
+    <%= f.text_field :keywords %>
+  </div>
+  <div class="field">
+    <%= f.label :series %><br />
+    <%= f.text_field :series %>
+  </div>
+  <div class="field">
+    <%= f.label :volume %><br />
+    <%= f.text_field :volume %>
+  </div>
+  <div class="field">
+    <%= f.label :chapter %><br />
+    <%= f.text_field :chapter %>
+  </div>
+  <div class="field">
+    <%= f.label :pages %><br />
+    <%= f.text_field :pages %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :journal %><br />
+    <%= f.text_field :journal %>
+  </div>
+  <div class="field">
+    <%= f.label :crossref %><br />
+    <%= f.text_field :crossref %>
+  </div>
+  <div class="field">
+    <%= f.label :typpe %><br />
+    <%= f.text_field :typpe %>
+  </div>
+  <div class="field">
+    <%= f.label :edition %><br />
+    <%= f.text_field :edition %>
+  </div>
+  <div class="field">
+    <%= f.label :howpublished %><br />
+    <%= f.text_field :howpublished %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :pdfurl %><br />
+    <%= f.text_field :pdfurl %>
+  </div>
+  <div class="field">
+    <%= f.label :psurl %><br />
+    <%= f.text_field :psurl %>
+  </div>
+  <div class="field">
+    <%= f.label :abstract %><br />
+    <%= f.text_area :abstract %>
+  </div>
+  <div class="field">
+    <%= f.label :issn %><br />
+    <%= f.text_field :issn %>
+  </div>
+  <div class="field">
+    <%= f.label :isbn %><br />
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :fk_status %><br />
+    <%= f.text_field :fk_status %>
+  </div>
+  <div class="field">
+    <%= f.label :timestamp %><br />
+    <%= f.number_field :timestamp %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fk_entries: 1
+  fk_id: 1
+  idtype: MyString
+
+two:
+  fk_entries: 1
+  fk_id: 1
+  idtype: MyString

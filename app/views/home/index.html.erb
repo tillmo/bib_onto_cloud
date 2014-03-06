@@ -1,0 +1,10 @@
+<script>
+ var word_list =<%= raw @tag_cloud.to_json%>
+ $(function() {
+   $("#my_tag_cloud").jQCloud(word_list);
+ }); 
+</script>
+
+<div id="my_tag_cloud" style="width: 850px; height: 550px;"></div>
+
+test

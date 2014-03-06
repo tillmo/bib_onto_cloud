@@ -17,3 +17,10 @@ rerun.txt
 pickle-email-*.html
 .project
 config/initializers/secret_token.rb
+config/settings.yml
+config/database.yml
+*~
+bibtex.schema
+bibtex.sql
+/public/pdf/*
+*#
