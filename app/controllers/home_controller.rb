@@ -14,7 +14,8 @@ class HomeController < ApplicationController
         @tag_hash[k.text] = k.relevance
       end
     end
-    @tag_cloud = Keyword.tag_cloud(@tag_hash)
+    @tag_cloud = Tag.compute_tag_cloud(@tag_hash)
+    render 'index'
   end
 
 end

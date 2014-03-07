@@ -49,6 +49,14 @@ TRIVIAL_WORDS = ["the","a","with","from","for","in","and","of","on",
     tag_cloud
   end
 
+  def self.compute_tag_cloud(tag_hash)
+    tag_cloud = []
+    tag_hash.each do |key,val|
+      tag_cloud << {"text" => key, "weight" => val}
+    end   
+    tag_cloud
+  end
+
   def add(e)
     self.count +=1
     self.save
@@ -81,4 +89,15 @@ TRIVIAL_WORDS = ["the","a","with","from","for","in","and","of","on",
     end
   end
 
+  # join two tags into one
+  def join(t)
+    self.count += t.count
+    self.save
+    t.count = 0
+    t.save
+    t.tag_entries.each do |te|
+      te.tag = self
+      te.save
+    end
+  end
 end
