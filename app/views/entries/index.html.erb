@@ -5,6 +5,10 @@ Papers
 <% end %>
 </h1>
 
+<% if @link %>
+  Lookup concept <i><%= params[:tag] %></i> at <%= link_to "SpacePortal", @link%>
+<% end %>
+
 <% @entries.each do |entry| %>
 <p>
     <%= entry.author %>:

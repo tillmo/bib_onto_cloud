@@ -3,9 +3,16 @@ class EntriesController < ApplicationController
   # GET /entries.json
   def index
     if params[:tag]
-      t = Tag.where("text = ?",params[:tag]).limit(1).first
-      if t
-        @entries = t.entries 
+      tags = Tag.where("text = ?",params[:tag])
+      @tag = tags.select{|t| t.onto}.first
+      if @tag.nil?
+        @tag = tags.first
+      end
+      if @tag
+        @entries = @tag.entries 
+        if @tag.onto
+          @link = "http://ontohub.org/spaceportal"
+        end
       end
     end
     if @entries.nil?
