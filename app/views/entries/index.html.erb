@@ -5,7 +5,9 @@ Papers
 <% end %>
 </h1>
 
-<% if @link %>
+<p><%= link_to "Back", "/" %>
+
+<p><% if @link %>
   Lookup concept <i><%= params[:tag] %></i> at <%= link_to "SpacePortal", @link%>
 <% end %>
 
