@@ -9,7 +9,7 @@ class EntriesController < ApplicationController
         @tag = tags.first
       end
       if @tag
-        @entries = @tag.entries 
+        @entries = @tag.entries.select{|e| e.year > 2001} 
         if @tag.onto
           @link = "http://ontohub.org/spaceportal"
         end
